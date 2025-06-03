@@ -1,7 +1,7 @@
 
 export default function Navbar() {
     return (
-        < nav className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-sm border-b border-gray-800" >
+        <nav className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-sm border-b border-gray-800" >
             <div className="container mx-auto px-6 py-4">
                 <div className="flex justify-between items-center">
                     <a href="#" className="text-xl font-bold text-green-400">{"<DevPortfolio />"}</a>
@@ -18,5 +18,6 @@ export default function Navbar() {
                     </div>
                 </div>
             </div>
-        </nav >)
+        </nav>
+    )
 }

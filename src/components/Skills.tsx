@@ -84,7 +84,7 @@ export default function Skills() {
     return (
         <section id="skills" className="pt-20 relative z-10">
             <div className="container mx-auto px-6">
-                <h2 className="text-4xl font-bold text-center mb-6 ">Profficient In</h2>
+                <h2 className="text-4xl font-bold text-center mb-6 ">Proficient In</h2>
                 <div className="mx-auto max-w-3xl">
                     <div className="relative h-20 overflow-hidden border border-green-700 rounded-xl bg-gray-800">
                         <div
