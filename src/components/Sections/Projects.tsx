@@ -3,7 +3,7 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent, } from "../u
 import { ExternalLink, Gamepad2, Github, Globe } from "lucide-react";
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
-
+import { VscLibrary } from "react-icons/vsc";
 export default function Projects() {
     return (
         <section id="projects" className="py-20 relative z-10">
@@ -22,9 +22,11 @@ export default function Projects() {
                                         <div className="flex items-center space-x-2">
                                             {project.type === "web" ? (
                                                 <Globe className="w-5 h-5 text-blue-400" />
-                                            ) : (
+                                            ) : project.type === "game" ? (
                                                 <Gamepad2 className="w-5 h-5 text-purple-400" />
-                                            )}
+                                            ) : project.type === "library" ? (
+                                                <VscLibrary className="w-5 h-5 text-yellow-400" />
+                                            ) : null}
                                         </div>
                                     </div>
                                     <CardDescription className="text-gray-300">{project.description}</CardDescription>
@@ -38,18 +40,28 @@ export default function Projects() {
                                         ))}
                                     </div>
                                     <div className="flex space-x-4">
-                                        <Button
-                                            size="sm"
-                                            variant="outline"
-                                            className="border-green-400 text-green-400 hover:bg-green-400 hover:text-black"
-                                        >
-                                            <Github className="w-4 h-4 mr-2" />
-                                            Code
-                                        </Button>
-                                        <Button size="sm" className="bg-green-600 hover:bg-green-700">
-                                            <ExternalLink className="w-4 h-4 mr-2" />
-                                            Demo
-                                        </Button>
+                                        {project.github && project.github !== "" && (
+                                            <a href={project.github} target="_blank">
+                                                <Button
+                                                    size="sm"
+                                                    variant="outline"
+                                                    className="border-green-400 text-green-400 hover:bg-green-400 hover:text-black"
+                                                >
+                                                    <Github className="w-4 h-4 mr-2" />
+                                                    Code
+                                                </Button>
+                                            </a>
+                                        )}
+
+                                        {project.demo && project.demo !== "" && (
+                                            <a href={project.demo} target="_blank">
+                                                <Button size="sm" className="bg-green-600 hover:bg-green-700">
+                                                    <ExternalLink className="w-4 h-4 mr-2" />
+                                                    Demo
+                                                </Button>
+                                            </a>
+                                        )}
+
                                     </div>
                                 </CardContent>
                             </Card>

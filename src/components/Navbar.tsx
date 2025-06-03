@@ -9,9 +9,6 @@ export default function Navbar() {
                         <a href="#about" className="hover:text-green-400 transition-colors">
                             About
                         </a>
-                        <a href="#skills" className="hover:text-green-400 transition-colors">
-                            Skills
-                        </a>
                         <a href="#projects" className="hover:text-green-400 transition-colors">
                             Projects
                         </a>
