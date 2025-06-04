@@ -33,8 +33,8 @@ export default function ContactFormModal({ open, onClose, onSubmitted }: Props) 
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center">
-            <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={onClose} />
-            <form onSubmit={handleSubmit} className="relative bg-gray-900 p-6 rounded-lg space-y-4 z-50 w-[calc(100%-2rem)] max-w-lg">
+            <div className="absolute inset-0 dark:bg-black/70 bg-black/40 backdrop-blur-sm" onClick={onClose} />
+            <form onSubmit={handleSubmit} className="relative dark:bg-gray-900 bg-slate-300 p-6 rounded-lg space-y-4 z-50 w-[calc(100%-2rem)] max-w-lg">
                 <h3 className="text-2xl font-bold text-green-400 text-center">Contact Me</h3>
                 <input
                     type="text"
@@ -42,7 +42,7 @@ export default function ContactFormModal({ open, onClose, onSubmitted }: Props) 
                     required
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="w-full p-2 rounded-md bg-gray-800 text-white focus:outline-none"
+                    className="w-full p-2 rounded-md dark:bg-gray-800 bg-slate-200 dark:text-white text-slate-800 focus:outline-none"
                 />
                 <input
                     type="email"
@@ -50,17 +50,17 @@ export default function ContactFormModal({ open, onClose, onSubmitted }: Props) 
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full p-2 rounded-md bg-gray-800 text-white focus:outline-none"
+                    className="w-full p-2 rounded-md dark:bg-gray-800 bg-slate-200 dark:text-white text-slate-800 focus:outline-none"
                 />
                 <textarea
                     placeholder="Message"
                     required
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    className="w-full p-2 rounded-md bg-gray-800 text-white h-32 focus:outline-none"
+                    className="w-full p-2 rounded-md dark:bg-gray-800 bg-slate-200 dark:text-white text-slate-800 h-32 focus:outline-none"
                 />
                 <div className="flex justify-end">
-                    <Button type="submit" className="bg-green-600 hover:bg-green-700" disabled={submitting}>
+                    <Button type="submit" className="bg-green-600 hover:bg-green-700 cursor-pointer" disabled={submitting}>
                         {submitting ? 'Sending...' : 'Send'}
                     </Button>
                 </div>

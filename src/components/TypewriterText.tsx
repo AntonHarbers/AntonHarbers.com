@@ -22,7 +22,7 @@ export const TypewriterText = ({
   }, [currentIndex, text, delay, isDeleting]);
 
   return (
-    <span>
+    <span className="text-slate-700 dark:text-white">
       {displayText}
       <span className="animate-pulse">|</span>
     </span>
