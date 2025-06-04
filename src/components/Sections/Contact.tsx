@@ -1,7 +1,12 @@
+import { useState } from "react";
 import { Github, Mail } from "lucide-react";
 import { Button } from "../ui/button";
+import ContactFormModal from "../ContactFormModal";
 
 export default function Contact() {
+    const [open, setOpen] = useState(false)
+    const [submitted, setSubmitted] = useState(false)
+
     return (
         <section id="contact" className="py-20 bg-gray-900/50 relative z-10">
             <div className="container mx-auto px-6">
@@ -12,10 +17,14 @@ export default function Contact() {
                         your next project.
                     </p>
                     <div className="flex justify-center space-x-6">
-                        <Button className="bg-green-600 hover:bg-green-700 cursor-pointer">
-                            <Mail className="w-5 h-5 mr-2" />
-                            Email Me
-                        </Button>
+                        {submitted ? (
+                            <p className="text-green-400">Thanks for reaching out! I'll get back to you soon.</p>
+                        ) : (
+                            <Button className="bg-green-600 hover:bg-green-700 cursor-pointer" onClick={() => setOpen(true)}>
+                                <Mail className="w-5 h-5 mr-2" />
+                                Email Me
+                            </Button>
+                        )}
                         <Button variant="outline" className="border-green-400 text-green-400 hover:bg-green-400 hover:text-black cursor-pointer">
                             <a href="https://github.com/antonharbers" className="flex" target="_blank"><Github className="w-5 h-5 mr-2" />
                                 GitHub</a>
@@ -23,5 +32,7 @@ export default function Contact() {
                     </div>
                 </div>
             </div>
-        </section>)
+            <ContactFormModal open={open} onClose={() => setOpen(false)} onSubmitted={() => { setOpen(false); setSubmitted(true); }} />
+        </section>
+    )
 }

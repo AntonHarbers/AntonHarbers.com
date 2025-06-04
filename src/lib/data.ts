@@ -11,7 +11,7 @@ export const projects = [
   {
     title: 'Lanaharbers.com',
     description:
-      'Interactive tool for visualizing sorting and pathfinding algorithms with step-by-step execution.',
+      'Personal website for Lana Harbers built with NextJS, SanityCMS and TailwindCSS. Hosted on Vercel.',
     tech: ['NextJS', 'TailwindCSS', 'SanityCMS', 'Typescript'],
     type: 'web',
     github: 'https://github.com/AntonHarbers/NextYogaWithLana',
