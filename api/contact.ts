@@ -1,6 +1,6 @@
-const nodemailer = require('nodemailer');
+import nodemailer from 'nodemailer';
 
-async function handler(req: Request) {
+export async function POST(req: Request) {
   if (req.method !== 'POST') {
     return new Response(JSON.stringify({ error: 'Method not allowed' }), {
       status: 405,
@@ -11,6 +11,7 @@ async function handler(req: Request) {
   try {
     body = await req.json();
   } catch (e) {
+    console.error(e);
     return new Response(JSON.stringify({ error: 'Invalid JSON' }), {
       status: 400,
     });
@@ -49,5 +50,3 @@ async function handler(req: Request) {
     });
   }
 }
-
-module.exports = handler;
