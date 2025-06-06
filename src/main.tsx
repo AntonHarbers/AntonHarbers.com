@@ -15,7 +15,7 @@ createRoot(document.getElementById('root')!).render(
   </StrictMode>,
 )
 
-declare module "./lib/i18n/lib/my-translations" {
+declare module "./lib/i18n/lib/my-translations.d.ts" {
   interface Register {
     translations: typeof translations
   }

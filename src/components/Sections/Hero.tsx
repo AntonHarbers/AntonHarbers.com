@@ -1,10 +1,9 @@
 import { ChevronDown } from "lucide-react";
 import { TypewriterText } from "../TypewriterText";
 import Skills from "../Skills";
-import { LocaleChooser, useTranslation } from "../../lib/I18n/react";
+import { LocaleChooser } from "../../lib/I18n/react";
 
 export default function Hero() {
-    const {t} = useTranslation();
 
     return (
         <section className="min-h-[calc(100vh-110px)] md:min-h-screen  flex justify-center relative flex-col">
