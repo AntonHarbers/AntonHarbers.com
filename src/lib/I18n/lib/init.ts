@@ -79,19 +79,16 @@ type NormalizedTranslationAtKeyWithParams<Key extends string> =
     TranslationAtKeyWithParams<RegisteredTranslations, Key>
   >;
 
-type Params<S extends DotPathsFor> =
-  NormalizedTranslationAtKeyWithParams<S>[0] extends string
-    ? ExtractParamArgs<
-        NormalizedTranslationAtKeyWithParams<S>[0],
-        NormalizedTranslationAtKeyWithParams<S>[1] extends {
-          enum: infer E;
-        }
-          ? keyof E extends never
-            ? EnumMap
-            : E
-          : EnumMap
-      >
-    : unknown;
+type Params<S extends DotPathsFor> = ExtractParamArgs<
+  NormalizedTranslationAtKeyWithParams<S>[0],
+  NormalizedTranslationAtKeyWithParams<S>[1] extends {
+    enum: infer E;
+  }
+    ? keyof E extends never
+      ? EnumMap
+      : E
+    : EnumMap
+>;
 
 type PathsWithParams = {
   [K in DotPathsFor]: keyof Params<K> extends never ? never : K;

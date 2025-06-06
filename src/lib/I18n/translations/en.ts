@@ -1,6 +1,6 @@
 import { type LanguageMessages } from '../lib';
 
-export default {
+export const translations = {
   locale: 'en-US',
   aboutNav: 'About',
   projectsNav: 'Projects',

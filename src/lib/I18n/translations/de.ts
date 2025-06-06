@@ -1,6 +1,6 @@
 import { type LanguageMessages } from '../lib';
 
-export default {
+export const translations = {
   locale: 'de',
   aboutNav: 'Über mich',
   projectsNav: 'Projekte',
@@ -10,7 +10,7 @@ export default {
   formMessage: 'Deine Nachricht',
   formSend: 'Absenden',
   formSending: 'Absenden...',
-  contactMe: "Kontaktiere mich",
+  contactMe: 'Kontaktiere mich',
   typewriter: 'Full Stack Web- & Indie-Spieleentwicklung',
   proficient: 'Kompetent in:',
   aboutHeader: 'Über mich',
