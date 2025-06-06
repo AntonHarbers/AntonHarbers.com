@@ -7,7 +7,7 @@ import { useTranslation } from "../../lib/I18n/react";
 export default function Contact() {
     const [open, setOpen] = useState(false)
     const [submitted, setSubmitted] = useState(false)
-    const {t} = useTranslation();
+    const { t } = useTranslation();
 
     return (
         <section id="contact" className="py-20 bg-gray-900/50 relative z-10">
