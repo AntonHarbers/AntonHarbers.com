@@ -2,6 +2,8 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import { FaReact, FaNodeJs, FaPython, FaGitAlt, FaUnity } from "react-icons/fa";
 import { SiTypescript, SiJavascript, SiNextdotjs, SiGodotengine, SiPostgresql, SiTailwindcss, SiMongodb, SiDrizzle, SiMysql } from "react-icons/si";
 import { TbBrandCSharp } from "react-icons/tb";
+import { useTranslation } from "../lib/I18n/react";
+
 const ICONS: [ReactNode, string][] = [
 
     [<SiJavascript size={40} title="JavaScript" />, "#F7DF1E"],
@@ -26,6 +28,7 @@ export default function Skills() {
     const [rowWidth, setRowWidth] = useState(0);
     const [offset, setOffset] = useState(0);
     const [hovered, setHovered] = useState<number | null>(null);
+    const { t } = useTranslation();
 
     // Measure row width after render and on resize
     useEffect(() => {
@@ -84,7 +87,7 @@ export default function Skills() {
     return (
         <section id="skills" className="pt-20 relative z-10">
             <div className="container mx-auto px-6">
-                <h2 className="text-4xl font-bold text-center mb-6 text-slate-800 dark:text-white select-none">Proficient In</h2>
+                <h2 className="text-4xl font-bold text-center mb-6 text-slate-800 dark:text-white select-none">{t("proficient")}</h2>
                 <div className="mx-auto max-w-3xl">
                     <div className="relative h-20 overflow-hidden border border-green-700 rounded-xl bg-slate-100 dark:bg-gray-800">
                         <div

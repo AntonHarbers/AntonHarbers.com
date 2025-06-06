@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Button } from './ui/button';
+import { useTranslation } from "../lib/I18n/react";
 
 interface Props {
     open: boolean;
@@ -12,6 +13,7 @@ export default function ContactFormModal({ open, onClose, onSubmitted }: Props) 
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
     const [submitting, setSubmitting] = useState(false);
+    const { t } = useTranslation();
 
     if (!open) return null;
 
@@ -35,7 +37,7 @@ export default function ContactFormModal({ open, onClose, onSubmitted }: Props) 
         <div className="fixed inset-0 z-50 flex items-center justify-center">
             <div className="absolute inset-0 dark:bg-black/70 bg-black/40 backdrop-blur-sm" onClick={onClose} />
             <form onSubmit={handleSubmit} className="relative dark:bg-gray-900 bg-slate-300 p-6 rounded-lg space-y-4 z-50 w-[calc(100%-2rem)] max-w-lg">
-                <h3 className="text-2xl font-bold text-green-400 text-center">Contact Me</h3>
+                <h3 className="text-2xl font-bold text-green-400 text-center">{t("contactMe")}</h3>
                 <input
                     type="text"
                     placeholder="Name"
@@ -46,14 +48,14 @@ export default function ContactFormModal({ open, onClose, onSubmitted }: Props) 
                 />
                 <input
                     type="email"
-                    placeholder="Email"
+                    placeholder={t("formEmail")}
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     className="w-full p-2 rounded-md dark:bg-gray-800 bg-slate-200 dark:text-white text-slate-800 focus:outline-none"
                 />
                 <textarea
-                    placeholder="Message"
+                    placeholder={t("formMessage")}
                     required
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
@@ -61,7 +63,7 @@ export default function ContactFormModal({ open, onClose, onSubmitted }: Props) 
                 />
                 <div className="flex justify-end">
                     <Button type="submit" className="bg-green-600 hover:bg-green-700 cursor-pointer" disabled={submitting}>
-                        {submitting ? 'Sending...' : 'Send'}
+                        {submitting ? t("formSending") : t("formSend")}
                     </Button>
                 </div>
             </form>
